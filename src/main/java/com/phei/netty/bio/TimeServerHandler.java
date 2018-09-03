@@ -50,6 +50,11 @@ public class TimeServerHandler implements Runnable {
             String currentTime = null;
             String body = null;
             while (true) {
+                /*
+                原来readLine()方法在进行读取一行时，只有遇到回车(\r)或者换行符(\n)才会返回读取结果，这就是“读取一行的意思”，
+                重要的是readLine()返回的读取内容中并不包含换行符或者回车符；并且，当realLine()读取到的内容为空时，并不会返
+                回 null，而是会一直阻塞，只有当读取的输入流发生错误或者被关闭时，readLine()方法才会返回null。
+                */
                 body = in.readLine();
                 if (body == null)
                     break;
